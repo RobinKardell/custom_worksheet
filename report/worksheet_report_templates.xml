@@ -1,0 +1,25 @@
+<odoo>
+    <template id="report_service_worksheet_template">
+        <t t-call="web.basic_layout">
+            <div class="page">
+                <h2>Service Worksheet Report</h2>
+                <p><strong>Customer:</strong> <t t-esc="doc.customer_id.name"/></p>
+                <p><strong>Place:</strong> <t t-esc="doc.place or 'N/A'"/></p>
+                <p><strong>Product:</strong> <t t-esc="doc.product_id.name"/></p>
+                <p><strong>Quantity:</strong> <t t-esc="doc.quantity"/></p>
+                <p><strong>Status:</strong> <t t-esc="doc.status_id.name"/></p>
+                <p><strong>Notes:</strong> <t t-esc="doc.note or 'N/A'"/></p>
+            </div>
+        </t>
+    </template>
+
+    <report
+        id="report_service_worksheet"
+        model="custom.worksheet"
+        string="Service Worksheet Report"
+        report_type="qweb-pdf"
+        name="custom_worksheet.report_service_worksheet_template"
+        file="custom_worksheet.report_service_worksheet_template"
+        print_report_name="(object.name or 'Worksheet')"
+    />
+</odoo>

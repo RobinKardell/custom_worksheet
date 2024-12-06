@@ -1,0 +1,5 @@
+<odoo>
+    <menuitem id="menu_custom_worksheet_root" name="Worksheets" sequence="10"/>
+    <menuitem id="menu_custom_worksheet" name="Worksheets" parent="menu_custom_worksheet_root" action="action_custom_worksheet"/>
+    <menuitem id="menu_custom_worksheet_status" name="Statuses" parent="menu_custom_worksheet_root" action="action_custom_worksheet_status"/>
+</odoo>

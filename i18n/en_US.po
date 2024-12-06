@@ -1,0 +1,125 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: custom_worksheet\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-12-04 00:00+0000\n"
+"PO-Revision-Date: 2024-12-04 00:00+0000\n"
+"Last-Translator: Your Name <your.email@example.com>\n"
+"Language-Team: English\n"
+"Language: en_US\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. module: custom_worksheet
+#: model:ir.ui.menu,custom_worksheet.menu_custom_worksheet_root
+msgid "Worksheets"
+msgstr "Worksheets"
+
+#: model:ir.ui.menu,custom_worksheet.menu_custom_worksheet
+msgid "Worksheets"
+msgstr "Worksheets"
+
+#: model:ir.ui.menu,custom_worksheet.menu_custom_worksheet_status
+msgid "Statuses"
+msgstr "Statuses"
+
+#: model:ir.model,name:custom_worksheet.model_custom_worksheet
+msgid "Worksheet"
+msgstr "Worksheet"
+
+#: model:ir.model,name:custom_worksheet.model_custom_worksheet_status
+msgid "Worksheet Status"
+msgstr "Worksheet Status"
+
+#: field:custom.worksheet,name
+msgid "Name"
+msgstr "Name"
+
+#: field:custom.worksheet,customer_id
+msgid "Customer"
+msgstr "Customer"
+
+#: field:custom.worksheet,contact_id
+msgid "Contact Person"
+msgstr "Contact Person"
+
+#: field:custom.worksheet,place
+msgid "Place"
+msgstr "Place"
+
+#: field:custom.worksheet,product_id
+msgid "Product/Item"
+msgstr "Product/Item"
+
+#: field:custom.worksheet,quantity
+msgid "Quantity"
+msgstr "Quantity"
+
+#: field:custom.worksheet,status_id
+msgid "Status"
+msgstr "Status"
+
+#: field:custom.worksheet,note
+msgid "Notes"
+msgstr "Notes"
+
+#: field:custom.worksheet,create_date
+msgid "Created On"
+msgstr "Created On"
+
+#: field:custom.worksheet.status,name
+msgid "Status Name"
+msgstr "Status Name"
+
+#: field:custom.worksheet.status,description
+msgid "Description"
+msgstr "Description"
+
+#: help:custom.worksheet.place
+msgid "Location of the worksheet."
+msgstr "Location of the worksheet."
+
+#: help:custom.worksheet.contact_id
+msgid "Specific contact person for this worksheet."
+msgstr "Specific contact person for this worksheet."
+
+#: help:custom.worksheet.status_id
+msgid "Current status of the worksheet."
+msgstr "Current status of the worksheet."
+
+#: button:custom.worksheet,name:generate_service_report
+msgid "Generate Report"
+msgstr "Generate Report"
+
+#: report:custom_worksheet.report_service_worksheet
+msgid "Service Worksheet Report"
+msgstr "Service Worksheet Report"
+
+#: template:custom_worksheet.report_service_worksheet_template
+msgid "Service Worksheet Report"
+msgstr "Service Worksheet Report"
+
+#: template:custom_worksheet.report_service_worksheet_template
+msgid "Customer:"
+msgstr "Customer:"
+
+#: template:custom_worksheet.report_service_worksheet_template
+msgid "Place:"
+msgstr "Place:"
+
+#: template:custom_worksheet.report_service_worksheet_template
+msgid "Product:"
+msgstr "Product:"
+
+#: template:custom_worksheet.report_service_worksheet_template
+msgid "Quantity:"
+msgstr "Quantity:"
+
+#: template:custom_worksheet.report_service_worksheet_template
+msgid "Status:"
+msgstr "Status:"
+
+#: template:custom_worksheet.report_service_worksheet_template
+msgid "Notes:"
+msgstr "Notes:"

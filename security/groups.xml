@@ -1,0 +1,17 @@
+<odoo>
+    <data>
+        <!-- Group: Worksheet Manager -->
+        <record id="group_worksheet_manager" model="res.groups">
+            <field name="name">Worksheet Manager</field>
+            <field name="category_id" ref="base.module_category_tools"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+
+        <!-- Group: Worksheet User -->
+        <record id="group_worksheet_user" model="res.groups">
+            <field name="name">Worksheet User</field>
+            <field name="category_id" ref="base.module_category_tools"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+    </data>
+</odoo>

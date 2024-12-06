@@ -1,0 +1,13 @@
+<odoo>
+    <data>
+        <record id="status_new" model="custom.worksheet.status">
+            <field name="name">Ny</field>
+        </record>
+        <record id="status_service" model="custom.worksheet.status">
+            <field name="name">Service</field>
+        </record>
+        <record id="status_exchange" model="custom.worksheet.status">
+            <field name="name">Utbytes</field>
+        </record>
+    </data>
+</odoo>

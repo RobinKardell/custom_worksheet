@@ -1,0 +1,45 @@
+<odoo>
+    <data>
+        <!-- Access Control for Worksheets -->
+        <record id="access_custom_worksheet_user" model="ir.model.access">
+            <field name="name">custom_worksheet_user_access</field>
+            <field name="model_id" ref="model_custom_worksheet"/>
+            <field name="group_id" ref="custom_worksheet.group_worksheet_user"/>
+            <field name="perm_read" eval="1"/>
+            <field name="perm_write" eval="1"/>
+            <field name="perm_create" eval="1"/>
+            <field name="perm_unlink" eval="0"/>
+        </record>
+
+        <record id="access_custom_worksheet_manager" model="ir.model.access">
+            <field name="name">custom_worksheet_manager_access</field>
+            <field name="model_id" ref="model_custom_worksheet"/>
+            <field name="group_id" ref="custom_worksheet.group_worksheet_manager"/>
+            <field name="perm_read" eval="1"/>
+            <field name="perm_write" eval="1"/>
+            <field name="perm_create" eval="1"/>
+            <field name="perm_unlink" eval="1"/>
+        </record>
+
+        <!-- Access Control for Worksheet Status -->
+        <record id="access_custom_worksheet_status_user" model="ir.model.access">
+            <field name="name">custom_worksheet_status_user_access</field>
+            <field name="model_id" ref="model_custom_worksheet_status"/>
+            <field name="group_id" ref="custom_worksheet.group_worksheet_user"/>
+            <field name="perm_read" eval="1"/>
+            <field name="perm_write" eval="0"/>
+            <field name="perm_create" eval="0"/>
+            <field name="perm_unlink" eval="0"/>
+        </record>
+
+        <record id="access_custom_worksheet_status_manager" model="ir.model.access">
+            <field name="name">custom_worksheet_status_manager_access</field>
+            <field name="model_id" ref="model_custom_worksheet_status"/>
+            <field name="group_id" ref="custom_worksheet.group_worksheet_manager"/>
+            <field name="perm_read" eval="1"/>
+            <field name="perm_write" eval="1"/>
+            <field name="perm_create" eval="1"/>
+            <field name="perm_unlink" eval="1"/>
+        </record>
+    </data>
+</odoo>
