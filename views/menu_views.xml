@@ -5,12 +5,32 @@
 </odoo>
 -->
 <odoo>
-    <!-- Menydefinition -->
-    <menuitem id="menu_custom_worksheet_root" name="Worksheets" sequence="10"/>
+    <data>
 
-    <!-- Meny för "Worksheets" -->
-    <menuitem id="menu_custom_worksheet" name="Worksheets" parent="menu_custom_worksheet_root" action="action_custom_worksheet"/>
+        <!-- Menydefinition -->
+        <menuitem id="menu_custom_worksheet_root" name="Worksheets" sequence="10"/>
 
-    <!-- Meny för "Statuses" -->
-    <menuitem id="menu_custom_worksheet_status" name="Statuses" parent="menu_custom_worksheet_root" action="action_custom_worksheet_status"/>
+        <!-- Definiera åtgärden för "Worksheets" -->
+        <record id="action_custom_worksheet" model="ir.actions.act_window">
+            <field name="name">Custom Worksheets</field>
+            <field name="res_model">custom.worksheet</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{}</field>
+        </record>
+
+        <!-- Meny för "Worksheets" -->
+        <menuitem id="menu_custom_worksheet" name="Worksheets" parent="menu_custom_worksheet_root" action="action_custom_worksheet"/>
+
+        <!-- Definiera åtgärden för "Statuses" -->
+        <record id="action_custom_worksheet_status" model="ir.actions.act_window">
+            <field name="name">Statuses</field>
+            <field name="res_model">custom.worksheet.status</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{}</field>
+        </record>
+
+        <!-- Meny för "Statuses" -->
+        <menuitem id="menu_custom_worksheet_status" name="Statuses" parent="menu_custom_worksheet_root" action="action_custom_worksheet_status"/>
+
+    </data>
 </odoo>
