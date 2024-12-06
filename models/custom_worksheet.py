@@ -13,10 +13,19 @@ class CustomWorksheet(models.Model):
     @api.model
     def create(self, values):
         # Rensa felaktiga relationer vid skapande
-        if 'customer_id' in values and not values.get('customer_id'):
-            values['customer_id'] = None  # Sätt till None eller en standard post
-        if 'status_id' in values and not values.get('status_id'):
-            values['status_id'] = None  # Sätt till None eller en standard post
+        if 'customer_id' in values:
+            customer_id = values.get('customer_id')
+            if customer_id:
+                customer = self.env['res.partner'].browse(customer_id)
+                if not customer.exists():
+                    values['customer_id'] = None
+
+        if 'status_id' in values:
+            status_id = values.get('status_id')
+            if status_id:
+                status = self.env['custom.worksheet.status'].browse(status_id)
+                if not status.exists():
+                    values['status_id'] = None
 
         return super(CustomWorksheet, self).create(values)
 
@@ -24,15 +33,20 @@ class CustomWorksheet(models.Model):
         # Rensa felaktiga relationer vid uppdatering
         if 'customer_id' in values:
             customer_id = values.get('customer_id')
-            if customer_id and not self.env['res.partner'].browse(customer_id).exists():
-                values['customer_id'] = None  # Om ogiltig, sätt till None eller standard
+            if customer_id:
+                # Kontrollera om kundposten existerar
+                customer = self.env['res.partner'].browse(customer_id)
+                if not customer.exists():  # Om posten inte finns, sätt till None
+                    values['customer_id'] = None
 
         if 'status_id' in values:
             status_id = values.get('status_id')
-            if status_id and not self.env['custom.worksheet.status'].browse(status_id).exists():
-                values['status_id'] = None  # Om ogiltig, sätt till None eller standard
+            if status_id:
+                # Kontrollera om statusposten existerar
+                status = self.env['custom.worksheet.status'].browse(status_id)
+                if not status.exists():  # Om posten inte finns, sätt till None
+                    values['status_id'] = None
 
-        # Rensa eventuella andra felaktiga relationer om det behövs
         return super(CustomWorksheet, self).write(values)
 
 
