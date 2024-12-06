@@ -1,5 +1,6 @@
 <odoo>
     <data>
+        <!-- Skapa statusar -->
         <record id="status_new" model="custom.worksheet.status">
             <field name="name">Ny</field>
         </record>
@@ -8,6 +9,14 @@
         </record>
         <record id="status_exchange" model="custom.worksheet.status">
             <field name="name">Utbytes</field>
+        </record>
+
+        <!-- Skapa åtgärd för "Custom Worksheet" -->
+        <record id="action_custom_worksheet" model="ir.actions.act_window">
+            <field name="name">Custom Worksheet</field>
+            <field name="res_model">custom.worksheet</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{}</field>
         </record>
     </data>
 </odoo>
