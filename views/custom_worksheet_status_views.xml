@@ -1,6 +1,6 @@
-<!-- views/custom_worksheet_status_views.xml -->
 <odoo>
     <data>
+
         <!-- Form View for Worksheet Status -->
         <record id="view_custom_worksheet_status_form" model="ir.ui.view">
             <field name="name">custom.worksheet.status.form</field>
@@ -36,5 +36,47 @@
 
         <!-- Menu item to access Custom Worksheet Status -->
         <menuitem id="custom_worksheet_status_menu" name="Worksheet Statuses" parent="base.menu_sales"/>
+        
+        <!-- Meny för Custom Worksheet -->
+        <record id="view_custom_worksheet_form" model="ir.ui.view">
+            <field name="name">custom.worksheet.form</field>
+            <field name="model">custom.worksheet</field>
+            <field name="arch" type="xml">
+                <form string="Custom Worksheet">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="customer_id"/>
+                            <field name="status_id"/>
+                            <field name="date_created"/>
+                        </group>
+                        <notebook>
+                            <page string="Products">
+                                <field name="product_ids">
+                                    <tree>
+                                        <field name="product_id"/>
+                                        <field name="quantity"/>
+                                        <field name="price_unit"/>
+                                        <field name="subtotal" readonly="1"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Action för att öppna formuläret -->
+        <record id="action_custom_worksheet" model="ir.actions.act_window">
+            <field name="name">Worksheets</field>
+            <field name="res_model">custom.worksheet</field>
+            <field name="view_mode">form,tree</field>
+        </record>
+
+        <!-- Meny för Custom Worksheet -->
+        <menuitem id="menu_custom_worksheet_root" name="Worksheets" sequence="10"/>
+        <menuitem id="menu_custom_worksheet" name="Worksheets" parent="menu_custom_worksheet_root" action="action_custom_worksheet"/>
+
     </data>
 </odoo>
