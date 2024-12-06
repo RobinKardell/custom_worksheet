@@ -1,0 +1,40 @@
+<!-- views/custom_worksheet_status_views.xml -->
+<odoo>
+    <data>
+        <!-- Form View for Worksheet Status -->
+        <record id="view_custom_worksheet_status_form" model="ir.ui.view">
+            <field name="name">custom.worksheet.status.form</field>
+            <field name="model">custom.worksheet.status</field>
+            <field name="arch" type="xml">
+                <form string="Custom Worksheet Status">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Tree View for Worksheet Status -->
+        <record id="view_custom_worksheet_status_tree" model="ir.ui.view">
+            <field name="name">custom.worksheet.status.tree</field>
+            <field name="model">custom.worksheet.status</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Action to open the custom worksheet status form view -->
+        <record id="action_custom_worksheet_status" model="ir.actions.act_window">
+            <field name="name">Custom Worksheet Statuses</field>
+            <field name="res_model">custom.worksheet.status</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- Menu item to access Custom Worksheet Status -->
+        <menuitem id="custom_worksheet_status_menu" name="Worksheet Statuses" parent="base.menu_sales"/>
+    </data>
+</odoo>

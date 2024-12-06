@@ -1,0 +1,13 @@
+<!-- reports/custom_worksheet_report.xml -->
+<odoo>
+    <data>
+        <report
+            id="custom_worksheet_report"
+            model="custom.worksheet"
+            string="Custom Worksheet Report"
+            report_type="qweb-pdf"
+            file="custom_worksheet.report_custom_worksheet"
+            name="custom_worksheet.report_custom_worksheet"
+        />
+    </data>
+</odoo>

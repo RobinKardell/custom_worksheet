@@ -1,0 +1,28 @@
+<!-- views/custom_worksheet_report_template.xml -->
+<odoo>
+    <template id="report_custom_worksheet">
+        <t t-call="web.basic_layout">
+            <div class="page">
+                <h2>Custom Worksheet Report</h2>
+                <table class="table table-condensed">
+                    <thead>
+                        <tr>
+                            <th>Product</th>
+                            <th>Quantity</th>
+                            <th>Price</th>
+                            <th>Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr t-foreach="doc.product_ids" t-as="product">
+                            <td><span t-field="product.product_id.name"/></td>
+                            <td><span t-field="product.quantity"/></td>
+                            <td><span t-field="product.price_unit"/></td>
+                            <td><span t-field="product.subtotal"/></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </t>
+    </template>
+</odoo>
