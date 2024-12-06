@@ -10,11 +10,38 @@ class CustomWorksheet(models.Model):
     status_id = fields.Many2one('custom.worksheet.status', string='Status', required=True)
     date_created = fields.Datetime(string='Creation Date', default=fields.Datetime.now)
 
+    @api.model
+    def create(self, values):
+        # Rensa felaktiga relationer vid skapande
+        if 'customer_id' in values and not values.get('customer_id'):
+            values['customer_id'] = None  # Sätt till None eller en standard post
+        if 'status_id' in values and not values.get('status_id'):
+            values['status_id'] = None  # Sätt till None eller en standard post
+
+        return super(CustomWorksheet, self).create(values)
+
+    def write(self, values):
+        # Rensa felaktiga relationer vid uppdatering
+        if 'customer_id' in values:
+            customer_id = values.get('customer_id')
+            if customer_id and not self.env['res.partner'].browse(customer_id).exists():
+                values['customer_id'] = None  # Om ogiltig, sätt till None eller standard
+
+        if 'status_id' in values:
+            status_id = values.get('status_id')
+            if status_id and not self.env['custom.worksheet.status'].browse(status_id).exists():
+                values['status_id'] = None  # Om ogiltig, sätt till None eller standard
+
+        # Rensa eventuella andra felaktiga relationer om det behövs
+        return super(CustomWorksheet, self).write(values)
+
+
 class CustomWorksheetStatus(models.Model):
     _name = 'custom.worksheet.status'
     _description = 'Custom Worksheet Status'
 
     name = fields.Char(string='Status', required=True)
+
 
 class CustomWorksheetProduct(models.Model):
     _name = 'custom.worksheet.product'
